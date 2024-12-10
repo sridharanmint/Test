@@ -1,1088 +1,517 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Statement</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-            page-break-after: always;
-        }
-        .grid-header, .grid-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-        .grid-header {
-            background-color: #f4f4f4;
-            font-weight: bold;
-        }
-        .page:last-child {
-            page-break-after: auto;
-        }
-    </style>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	STATEMENT OF ACCOUNT:: RPSMART 
+</title><link href="../StyleSheet/Contolstl.css" rel="stylesheet" type="text/css" />
+    
+    <script language="javascript" type="text/javascript">
+    
+    function showDetails(PenalityID,InstNo)
+    {
+    
+      window.open("R_SOA_PenalityDetails.aspx?PenaID=" + PenalityID  + "&InstNo=" + InstNo, "", "width=700,height=300")
+        return false;
+    }
+    
+    function openReceipt(RecNo) {
+
+    var p = window.open("Receipt_Details.aspx?RecNo=" + RecNo, "", "width=810,height=400,top=100,left=200,scrollbars=1,menubar=1");
+    return false;
+}
+
+
+
+    function openInvoice(InvNo) {
+
+        var p = window.open("Invoice_Print.aspx?InvNo=" + InvNo, "", "width=810,height=600,top=100,left=200,scrollbars=1,menubar=1");
+        return false;
+    }
+    </script>
+    
 </head>
 <body>
-    <h1>Account Statement</h1>
-    <p><strong>Account Holder:</strong> John Doe</p>
-    <p><strong>Account Number:</strong> 1234567890</p>
-    <p><strong>Statement Date:</strong> 29-Nov-2024</p>
+<a href="https://rpsmart.com/acs_traplink"></a>
+    <form name="form1" method="post" action="./R_StatementofAccount_dt2.aspx?TransID=4823&amp;UnitID=4299&amp;ssadkey=mykey" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
 
-    <!-- Page 1 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">01-Nov-2024</div>
-        <div class="grid-item">Opening Balance</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$5,000.00</div>
+<div>
 
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-
-    <!-- Repeat similar structure for 10 pages -->
-    <!-- Page 2 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">20-Nov-2024</div>
-        <div class="grid-item">Utility Payment</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,050.00</div>
-
-        <div class="grid-item">25-Nov-2024</div>
-        <div class="grid-item">Restaurant</div>
-        <div class="grid-item">$75.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$6,975.00</div>
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="262FE2B7" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAKZ+uJ53hFpKAWDE1QC7WYWR4qA/oje6Spayx3dPgaj+Y7VMHKsIgXaOQTOONHNxf0Vua9skroOuWPxYbhBhKdZ" />
+</div>
+   
+ 
+   
+   <table align="center" class="text12">
+  <tr>
+   <td align="center"  >
+       &nbsp;</td>
+   
+   </tr>
+   <tr>
+   <td align="center">
+    <div style="font-size:large">
+   STATEMENT OF ACCOUNT <br/></div>
+   
+    <div  class="textbold">As of&nbsp;
+       <span id="lblDateAsof">10-Dec-2024</span> 
+       </div>
         
-        <div class="grid-item">28-Nov-2024</div>
-        <div class="grid-item">Freelance Income</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$500.00</div>
-        <div class="grid-item">$7,475.00</div>
-
-        <div class="grid-item">29-Nov-2024</div>
-        <div class="grid-item">Groceries</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,375.00</div>
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-    </div>
-
-    <!-- Repeat for Page 3 to Page 10 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-	<!-- Page 1 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">01-Nov-2024</div>
-        <div class="grid-item">Opening Balance</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$5,000.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-
-    <!-- Repeat similar structure for 10 pages -->
-    <!-- Page 2 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">20-Nov-2024</div>
-        <div class="grid-item">Utility Payment</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,050.00</div>
-
-        <div class="grid-item">25-Nov-2024</div>
-        <div class="grid-item">Restaurant</div>
-        <div class="grid-item">$75.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$6,975.00</div>
-        
-        <div class="grid-item">28-Nov-2024</div>
-        <div class="grid-item">Freelance Income</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$500.00</div>
-        <div class="grid-item">$7,475.00</div>
-
-        <div class="grid-item">29-Nov-2024</div>
-        <div class="grid-item">Groceries</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,375.00</div>
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-    </div>
-
-    <!-- Repeat for Page 3 to Page 10 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-	<!-- Page 1 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">01-Nov-2024</div>
-        <div class="grid-item">Opening Balance</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$5,000.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-
-    <!-- Repeat similar structure for 10 pages -->
-    <!-- Page 2 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">20-Nov-2024</div>
-        <div class="grid-item">Utility Payment</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,050.00</div>
-
-        <div class="grid-item">25-Nov-2024</div>
-        <div class="grid-item">Restaurant</div>
-        <div class="grid-item">$75.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$6,975.00</div>
-        
-        <div class="grid-item">28-Nov-2024</div>
-        <div class="grid-item">Freelance Income</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$500.00</div>
-        <div class="grid-item">$7,475.00</div>
-
-        <div class="grid-item">29-Nov-2024</div>
-        <div class="grid-item">Groceries</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,375.00</div>
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-    </div>
-
-    <!-- Repeat for Page 3 to Page 10 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-	<!-- Page 1 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">01-Nov-2024</div>
-        <div class="grid-item">Opening Balance</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$5,000.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-
-    <!-- Repeat similar structure for 10 pages -->
-    <!-- Page 2 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">20-Nov-2024</div>
-        <div class="grid-item">Utility Payment</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,050.00</div>
-
-        <div class="grid-item">25-Nov-2024</div>
-        <div class="grid-item">Restaurant</div>
-        <div class="grid-item">$75.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$6,975.00</div>
-        
-        <div class="grid-item">28-Nov-2024</div>
-        <div class="grid-item">Freelance Income</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$500.00</div>
-        <div class="grid-item">$7,475.00</div>
-
-        <div class="grid-item">29-Nov-2024</div>
-        <div class="grid-item">Groceries</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,375.00</div>
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-    </div>
-
-    <!-- Repeat for Page 3 to Page 10 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-	<!-- Page 1 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">01-Nov-2024</div>
-        <div class="grid-item">Opening Balance</div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$5,000.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
-
-    <!-- Repeat similar structure for 10 pages -->
-    <!-- Page 2 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">20-Nov-2024</div>
-        <div class="grid-item">Utility Payment</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,050.00</div>
-
-        <div class="grid-item">25-Nov-2024</div>
-        <div class="grid-item">Restaurant</div>
-        <div class="grid-item">$75.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$6,975.00</div>
-        
-        <div class="grid-item">28-Nov-2024</div>
-        <div class="grid-item">Freelance Income</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$500.00</div>
-        <div class="grid-item">$7,475.00</div>
-
-        <div class="grid-item">29-Nov-2024</div>
-        <div class="grid-item">Groceries</div>
-        <div class="grid-item">$100.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,375.00</div>
-        <div class="grid-item">05-Nov-2024</div>
-        <div class="grid-item">ATM Withdrawal</div>
-        <div class="grid-item">$200.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$4,800.00</div>
-
-        <div class="grid-item">10-Nov-2024</div>
-        <div class="grid-item">Salary Deposit</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$2,500.00</div>
-        <div class="grid-item">$7,300.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-    </div>
-
-    <!-- Repeat for Page 3 to Page 10 -->
-    <div class="grid-container">
-        <!-- Headers -->
-        <div class="grid-header">Date</div>
-        <div class="grid-header">Description</div>
-        <div class="grid-header">Debit</div>
-        <div class="grid-header">Credit</div>
-        <div class="grid-header">Balance</div>
-        <!-- Items -->
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-        <div class="grid-item">1-Dec-2024</div>
-        <div class="grid-item">Books</div>
-        <div class="grid-item">$30</div>
-        <div class="grid-item">$800+</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-
-        <div class="grid-item">15-Nov-2024</div>
-        <div class="grid-item">Grocery Shopping</div>
-        <div class="grid-item">$150.00</div>
-        <div class="grid-item"></div>
-        <div class="grid-item">$7,150.00</div>
-    </div>
+   </td>
+   
+   </tr>
+      <tr>
+   <td height="600" valign="top">
+   
+   <table  width="700" cellpadding="3" align="center" class="text12" >
+   
+   <tr>
+   <td>
+       <table cellpadding="3" width="100%">
+       <tr>
+       <td width="150px">
+       Name
+       </td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblName">Mr. Huraiz Rashed Abdulla AlHeraiz AlFalasi</span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           Address</td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblAddress">P.O. Box: 10899 Dubai
+United Arab Emiraes </span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           P.O.Box</td>
+       <td width="5px">:</td>
+       <td>
+       
+       <table width="100%" cellpadding="0" cellspacing="0">
+       <tr>
+       <td width="200">
+       
+        <span id="lblPOBox">10899</span>
+       </td>
+       <td align="right">
+       
+        <span id="lblStatus" style="color:Red;font-size:Large;font-weight:bold;"></span>
+       </td>
+                
+       </tr>
+      
+       </table>
+
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           Phone No</td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblPhNo">971506466888 /971506466888</span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           Email Address</td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblEmail">huraiz.alhuraiz@gmail.com</span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           Unit Model</td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblUnitView">Type: Townhouse; Bed Rooms: 3</span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           Unit No</td>
+       <td width="5px">:</td>
+       <td>
+           <span id="lblUnitNo" style="font-weight:bold;">Mina Al Arab, Precinct 11 - Flamingo Phase2 - MA11B-012</span>
+           </td>
+       
+       </tr>
+       
+       <tr>
+       <td width="150px">
+           &nbsp;</td>
+       <td width="5px">&nbsp;</td>
+       <td align="right">
+           <span id="lblSoldAmt" class="textbold">TOTAL PURCHASE PRICE :  AED 1,398,166.00</span>
+           </td>
+       
+       </tr>
+       
+       </table>
+       
+       </td>
+   
+   </tr>
+   <tr>
+   <td height="180" valign="top">
+       <div>
+	<table cellspacing="0" cellpadding="3" rules="all" border="1" id="gvReceipt" style="width:700px;border-collapse:collapse;">
+		<tr>
+			<th scope="col" style="width:200px;">PaymentPlan</th><th scope="col" style="width:50px;">DueDate</th><th scope="col" style="width:40px;">Tax Inv#</th><th scope="col" style="width:40px;">Rec.No</th><th scope="col" style="width:50px;">ChqDate</th><th scope="col" style="width:80px;">AmtDue</th><th scope="col" style="width:80px;">AmtPaid</th><th scope="col" style="width:80px;">Balance</th>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">1st installment Due </td><td align="left" style="white-space:nowrap;">07/Jun/15</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl02_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt();" >
+                          
+                                <span id="gvReceipt_ctl02_Label1"></span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">&nbsp;</td><td align="right">
+                                <span id="gvReceipt_ctl02_Label2">69,908.30</span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl02_Label3"></span>
+                            </td><td align="right">69,908.30</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 1 </td><td align="left" style="white-space:nowrap;">07/Jun/15</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl03_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(39770);" >
+                          
+                                <span id="gvReceipt_ctl03_Label1">39770</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">04/Jun/15</td><td align="right">
+                                <span id="gvReceipt_ctl03_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl03_Label3">69,908.30</span>
+                            </td><td align="right">0.00</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">2nd installment Due </td><td align="left" style="white-space:nowrap;">07/Sep/15</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl04_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt();" >
+                          
+                                <span id="gvReceipt_ctl04_Label1"></span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">&nbsp;</td><td align="right">
+                                <span id="gvReceipt_ctl04_Label2">139,816.60</span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl04_Label3"></span>
+                            </td><td align="right">139,816.60</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 2 </td><td align="left" style="white-space:nowrap;">28/Sep/15</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl05_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(43705);" >
+                          
+                                <span id="gvReceipt_ctl05_Label1">43705</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">27/Sep/15</td><td align="right">
+                                <span id="gvReceipt_ctl05_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl05_Label3">139,816.60</span>
+                            </td><td align="right">0.00</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 3 </td><td align="left" style="white-space:nowrap;">06/Mar/16</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl06_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(50517);" >
+                          
+                                <span id="gvReceipt_ctl06_Label1">50517</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">03/Mar/16</td><td align="right">
+                                <span id="gvReceipt_ctl06_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl06_Label3">209,725.00</span>
+                            </td><td align="right">-209,725.00</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">3rd installment Due </td><td align="left" style="white-space:nowrap;">07/Mar/16</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl07_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt();" >
+                          
+                                <span id="gvReceipt_ctl07_Label1"></span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">&nbsp;</td><td align="right">
+                                <span id="gvReceipt_ctl07_Label2">209,724.90</span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl07_Label3"></span>
+                            </td><td align="right">-0.10</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">4th installment Due </td><td align="left" style="white-space:nowrap;">20/Oct/16</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl08_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt();" >
+                          
+                                <span id="gvReceipt_ctl08_Label1"></span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">&nbsp;</td><td align="right">
+                                <span id="gvReceipt_ctl08_Label2">978,716.20</span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl08_Label3"></span>
+                            </td><td align="right">978,716.10</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 4 </td><td align="left" style="white-space:nowrap;">19/Dec/16</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl09_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(62089);" >
+                          
+                                <span id="gvReceipt_ctl09_Label1">62089</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">15/Dec/16</td><td align="right">
+                                <span id="gvReceipt_ctl09_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl09_Label3">978,716.50</span>
+                            </td><td align="right">-0.40</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 4 </td><td align="left" style="white-space:nowrap;">29/Jan/18</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl10_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(82971);" >
+                          
+                                <span id="gvReceipt_ctl10_Label1">82971</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">28/Jan/18</td><td align="right">
+                                <span id="gvReceipt_ctl10_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl10_Label3">0.40</span>
+                            </td><td align="right">-0.80</td>
+		</tr><tr style="color:Black;height:22px;">
+			<td align="left">Payment Received for inst# 4 </td><td align="left" style="white-space:nowrap;">11/Feb/18</td><td align="center">
+                              <a href="#" style="text-decoration:none" onclick="return openInvoice();" >
+                          
+                                <span id="gvReceipt_ctl11_Label1"></span>
+                                </a>
+                            </td><td align="center">
+                              
+                                 <a href="#" style="text-decoration:none" onclick="return openReceipt(83795);" >
+                          
+                                <span id="gvReceipt_ctl11_Label1">83795</span>
+                                </a>
+                            </td><td align="left" style="white-space:nowrap;">10/Feb/18</td><td align="right">
+                                <span id="gvReceipt_ctl11_Label2"></span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl11_Label3">0.80</span>
+                            </td><td align="right">-1.60</td>
+		</tr><tr class="textsmall" style="height:10px;">
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td align="right" style="font-weight:bold;">TOTAL:</td><td align="right">
+                                <span id="gvReceipt_ctl12_lblAmtTopaySum" style="font-weight:bold;">1,398,166.00</span>
+                            </td><td align="right">
+                                <span id="gvReceipt_ctl12_lblAmtPaidSum" style="font-weight:bold;">1,398,167.60</span>
+                            </td><td>&nbsp;</td>
+		</tr>
+	</table>
+</div>
+   </td>
+   </tr>
+    <tr>
+   <td align="left">
+   <table width="100%" cellpadding="0" cellspacing="0">
+   <tr>
+   <td width="300"> <span id="lblPenaHead" class="textbold">Late Payment Fee and Other Charges :</span> </td>
+    <td align="right">   <span id="lblPenaBalance" class="textbold">0.00</span> </td>
+   
+   </tr>
+   </table>
+   
+     
+       </td>
+   </tr>
+   <tr>
+   <td align="right">
+       <span id="lblPayBalance" class="textbig" style="font-weight:bold;">  PAYMENT DUE  : AED 0.00</span>
+       </td>
+   </tr>
+      
+   <tr>
+   <td>
+            
+       <div>
+
+</div>
+       </td>
+   </tr>
+    
+   <tr>
+   <td>
+       Kindly remit payment to the below mentioned bank account using your appartment 
+       number as your reference</td>
+   </tr>
+   
+   <tr>
+   <td>
+    
+       
+       <table id="tblCBI" cellpadding="4" cellspacing="0" width="100%">
+	<tr>
+		<td width="150px">
+           Bank</td>
+		<td width="5px">:</td>
+		<td>Commercial Bank International 
+           (CBI)</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           Account Name</td>
+		<td width="5px">:</td>
+		<td>RAK Properties PJSC</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           Account Number</td>
+		<td width="5px">:</td>
+		<td>10-001-064660-0</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           IBAN Number</td>
+		<td width="5px">:</td>
+		<td>AE960220000100010646600</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           Branch</td>
+		<td width="5px">:</td>
+		<td>Main Branch Dubai</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           SwiftCode</td>
+		<td width="5px">:</td>
+		<td>CLBIAEAD</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           Bank Postal Address</td>
+		<td width="5px">:</td>
+		<td>Al Rigga Street, P O Box 4449 
+           Dubai UAE</td>
+	</tr>
+	<tr>
+		<td width="150px">
+           
+           </td>
+		<td width="5px">
+           
+           </td>
+		<td>
+           
+           </td>
+	</tr>
+</table>
+       
+   </td>
+   </tr>
+   
+   <tr>
+   <td>
+   <table cellpadding="3" cellspacing="0"  width="100%">
+       <tr>
+       <td >
+           
+           
+           
+       </td>
+       </tr>
+       
+       <tr>
+       <td >
+        Once paid kindly fax confirmation of payment to fax number +971 7 2272444 or email to finance@rakproperties.net<br />
+       </td>
+       </tr>
+       
+       <tr>
+       <td>If no discrepancies is reported within two weeks of the statement date, this 
+       will be considered as correct. </td>
+       </tr>
+       
+       <tr>
+       <td>
+       <b><i>Kindly ignore this notice, if you have already effected the payment</i></b>
+       </td>
+       
+       </tr>
+       </table>
+      
+       </td>
+   </tr>
+   
+
+   <tr>
+   <td>
+           <span id="lblChqNote" style="color:LightCoral;font-style:italic;"></span>
+       </td>
+   </tr>
+   
+   <tr>
+   <td>
+       <input type="hidden" name="hdTransID" id="hdTransID" value="4823" />
+       </td>
+   </tr>
+
+   </table> 
+   
+   </td>
+   
+   </tr>
+
+   </table>  
+    </form>
 </body>
 </html>
