@@ -9,24 +9,24 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
         h1 {
             text-align: center;
         }
-        .page {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
             page-break-after: always;
+        }
+        .grid-header, .grid-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .grid-header {
+            background-color: #f4f4f4;
+            font-weight: bold;
         }
         .page:last-child {
             page-break-after: auto;
@@ -40,68 +40,135 @@
     <p><strong>Statement Date:</strong> 29-Nov-2024</p>
 
     <!-- Page 1 -->
-    <div class="page">
-        <h2>Page 1</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Debit</th>
-                    <th>Credit</th>
-                    <th>Balance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>01-Nov-2024</td><td>Opening Balance</td><td></td><td></td><td>$5,000.00</td></tr>
-                <tr><td>05-Nov-2024</td><td>ATM Withdrawal</td><td>$200.00</td><td></td><td>$4,800.00</td></tr>
-                <!-- Add 18 more rows for page 1 -->
-            </tbody>
-        </table>
+    <div class="grid-container">
+        <!-- Headers -->
+        <div class="grid-header">Date</div>
+        <div class="grid-header">Description</div>
+        <div class="grid-header">Debit</div>
+        <div class="grid-header">Credit</div>
+        <div class="grid-header">Balance</div>
+        <!-- Items -->
+        <div class="grid-item">01-Nov-2024</div>
+        <div class="grid-item">Opening Balance</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$5,000.00</div>
+
+        <div class="grid-item">05-Nov-2024</div>
+        <div class="grid-item">ATM Withdrawal</div>
+        <div class="grid-item">$200.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$4,800.00</div>
+
+        <div class="grid-item">10-Nov-2024</div>
+        <div class="grid-item">Salary Deposit</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$2,500.00</div>
+        <div class="grid-item">$7,300.00</div>
+
+        <div class="grid-item">15-Nov-2024</div>
+        <div class="grid-item">Grocery Shopping</div>
+        <div class="grid-item">$150.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$7,150.00</div>
+
+        <div class="grid-item">05-Nov-2024</div>
+        <div class="grid-item">ATM Withdrawal</div>
+        <div class="grid-item">$200.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$4,800.00</div>
+
+        <div class="grid-item">10-Nov-2024</div>
+        <div class="grid-item">Salary Deposit</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$2,500.00</div>
+        <div class="grid-item">$7,300.00</div>
+
+        <div class="grid-item">15-Nov-2024</div>
+        <div class="grid-item">Grocery Shopping</div>
+        <div class="grid-item">$150.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$7,150.00</div>
     </div>
 
+    <!-- Repeat similar structure for 10 pages -->
     <!-- Page 2 -->
-    <div class="page">
-        <h2>Page 2</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Debit</th>
-                    <th>Credit</th>
-                    <th>Balance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>06-Nov-2024</td><td>Grocery Shopping</td><td>$150.00</td><td></td><td>$4,650.00</td></tr>
-                <tr><td>10-Nov-2024</td><td>Salary Deposit</td><td></td><td>$2,500.00</td><td>$7,150.00</td></tr>
-                <!-- Add 18 more rows for page 2 -->
-            </tbody>
-        </table>
+    <div class="grid-container">
+        <!-- Headers -->
+        <div class="grid-header">Date</div>
+        <div class="grid-header">Description</div>
+        <div class="grid-header">Debit</div>
+        <div class="grid-header">Credit</div>
+        <div class="grid-header">Balance</div>
+        <!-- Items -->
+        <div class="grid-item">20-Nov-2024</div>
+        <div class="grid-item">Utility Payment</div>
+        <div class="grid-item">$100.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$7,050.00</div>
+
+        <div class="grid-item">25-Nov-2024</div>
+        <div class="grid-item">Restaurant</div>
+        <div class="grid-item">$75.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$6,975.00</div>
+        
+        <div class="grid-item">28-Nov-2024</div>
+        <div class="grid-item">Freelance Income</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$500.00</div>
+        <div class="grid-item">$7,475.00</div>
+
+        <div class="grid-item">29-Nov-2024</div>
+        <div class="grid-item">Groceries</div>
+        <div class="grid-item">$100.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$7,375.00</div>
+        <div class="grid-item">05-Nov-2024</div>
+        <div class="grid-item">ATM Withdrawal</div>
+        <div class="grid-item">$200.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$4,800.00</div>
+
+        <div class="grid-item">10-Nov-2024</div>
+        <div class="grid-item">Salary Deposit</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$2,500.00</div>
+        <div class="grid-item">$7,300.00</div>
+
+        <div class="grid-item">15-Nov-2024</div>
+        <div class="grid-item">Grocery Shopping</div>
+        <div class="grid-item">$150.00</div>
+        <div class="grid-item"></div>
+        <div class="grid-item">$7,150.00</div>
+
     </div>
 
-    <!-- Repeat similar structure for pages 3 to 10 -->
-
-    <!-- Page 10 -->
-    <div class="page">
-        <h2>Page 10</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Debit</th>
-                    <th>Credit</th>
-                    <th>Balance</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>25-Nov-2024</td><td>Online Shopping</td><td>$300.00</td><td></td><td>$6,850.00</td></tr>
-                <tr><td>29-Nov-2024</td><td>Electricity Bill</td><td>$120.00</td><td></td><td>$6,730.00</td></tr>
-                <!-- Add 18 more rows for page 10 -->
-            </tbody>
-        </table>
+    <!-- Repeat for Page 3 to Page 10 -->
+    <div class="grid-container">
+        <!-- Headers -->
+        <div class="grid-header">Date</div>
+        <div class="grid-header">Description</div>
+        <div class="grid-header">Debit</div>
+        <div class="grid-header">Credit</div>
+        <div class="grid-header">Balance</div>
+        <!-- Items -->
+        <div class="grid-item">1-Dec-2024</div>
+        <div class="grid-item">Books</div>
+        <div class="grid-item">$30</div>
+        <div class="grid-item">$800+</div>
+        <div class="grid-item">1-Dec-2024</div>
+        <div class="grid-item">Books</div>
+        <div class="grid-item">$30</div>
+        <div class="grid-item">$800+</div>
+        <div class="grid-item">1-Dec-2024</div>
+        <div class="grid-item">Books</div>
+        <div class="grid-item">$30</div>
+        <div class="grid-item">$800+</div>
+        <div class="grid-item">1-Dec-2024</div>
+        <div class="grid-item">Books</div>
+        <div class="grid-item">$30</div>
+        <div class="grid-item">$800+</div>
     </div>
 </body>
 </html>
